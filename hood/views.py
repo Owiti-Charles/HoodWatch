@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import SignupForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
+from .models import NeighbourHood
 
 
 @login_required(login_url='login')
@@ -22,3 +23,12 @@ def signup(request):
     else:
         form = SignupForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+def hoods(request):
+    all_hoods = NeighbourHood.objects.all()
+
+    params = {
+        'all_hoods': all_hoods
+    }
+    return render(request, 'all_hoods.html', params)

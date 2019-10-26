@@ -3,6 +3,15 @@
 {% block content %}
 <div class="container">
     <h1>Welcome to HoodWatch</h1>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 mt-4">
+            <img class="rounded-circle account-img d-block mx-auto" src="{{ user.profile.profile_picture.url }}" height="125px" width="125px">
+            <h5 class="text-center mt-3">{{user.username}}</h5>
+            <p class="text-center"> {{user.email}}</p>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
     <a href="{% url 'edit-profile' user.username %}">Edit Profile</a>
 </div>
 {% endblock %}

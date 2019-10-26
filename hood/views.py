@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import SignupForm
+from .forms import SignupForm, BusinessForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import NeighbourHood, Profile, Business
@@ -51,10 +51,11 @@ def create_hood(request):
 def single_hood(request, hood_id):
     hood = NeighbourHood.objects.get(id=hood_id)
     business = Business.objects.filter(neighbourhood=hood)
-    print(business)
+    form = BusinessForm()
     params = {
         'hood': hood,
-        'business': business
+        'business': business,
+        'form': form
     }
     return render(request, 'single_hood.html', params)
 

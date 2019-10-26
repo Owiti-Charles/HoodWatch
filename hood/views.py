@@ -3,7 +3,7 @@ from .forms import SignupForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import NeighbourHood, Profile
-from .forms import UpdateProfileForm
+from .forms import UpdateProfileForm, NeighbourHoodForm
 from django.contrib.auth.models import User
 
 
@@ -31,9 +31,14 @@ def hoods(request):
     all_hoods = NeighbourHood.objects.all()
 
     params = {
-        'all_hoods': all_hoods
+        'all_hoods': all_hoods,
     }
     return render(request, 'all_hoods.html', params)
+
+
+def create_hood(request):
+    form = NeighbourHoodForm()
+    return render(request, 'newhood.html', {'form': form})
 
 
 def join_hood(request, id):

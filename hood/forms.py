@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile, NeighbourHood
+from pyuploadcare.dj.forms import ImageField
 
 
 class SignupForm(UserCreationForm):
@@ -16,3 +17,11 @@ class UpdateProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ('user', 'neighbourhood')
+
+
+class NeighbourHoodForm(forms.ModelForm):
+    photo = ImageField(label='')
+
+    class Meta:
+        model = NeighbourHood
+        fields = ('logo', 'name', 'location', 'description')

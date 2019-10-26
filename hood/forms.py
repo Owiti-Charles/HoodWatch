@@ -20,8 +20,6 @@ class UpdateProfileForm(forms.ModelForm):
 
 
 class NeighbourHoodForm(forms.ModelForm):
-    photo = ImageField(label='')
-
     class Meta:
         model = NeighbourHood
-        fields = ('logo', 'name', 'location', 'description')
+        exclude = ('admin',)

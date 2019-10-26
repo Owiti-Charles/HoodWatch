@@ -7,7 +7,7 @@
         {% for hood in all_hoods %}
         <div class="col-md-4">
             <div class="card mb-4">
-                <img src="{{ hood.logo.cdn_url }}" class="card-img-top" alt="{{ hood.name }}">
+                <img src="{{ hood.hood_logo.url }}" class="card-img-top" alt="{{ hood.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ hood.name }} ({{hood.location}}) <span style="float:right">{{hood.members.count}} member{{hood.members.count|pluralize}}</span></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of

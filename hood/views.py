@@ -32,3 +32,11 @@ def hoods(request):
         'all_hoods': all_hoods
     }
     return render(request, 'all_hoods.html', params)
+
+
+def profile(request, username):
+    return render(request, 'profile.html')
+
+
+def edit_profile(request, username):
+    return render(request, 'editprofile.html')

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignupForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .models import NeighbourHood, Profile
+from .models import NeighbourHood, Profile, Business
 from .forms import UpdateProfileForm, NeighbourHoodForm
 from django.contrib.auth.models import User
 
@@ -50,7 +50,13 @@ def create_hood(request):
 
 def single_hood(request, hood_id):
     hood = NeighbourHood.objects.get(id=hood_id)
-    return render(request, 'single_hood.html')
+    business = Business.objects.filter(neighbourhood=hood)
+    print(business)
+    params = {
+        'hood': hood,
+        'business': business
+    }
+    return render(request, 'single_hood.html', params)
 
 
 def join_hood(request, id):

@@ -15,7 +15,7 @@
                     {% if request.user.profile.neighbourhood != hood %}
                     <a href="{% url 'join-hood' hood.id %}" class="btn btn-primary">Join Hood</a>
                     {% elif request.user.profile.neighbourhood == hood %}
-                    <a href="" class="btn btn-outline-danger">Leave Hood</a>
+                    <a href="{% url 'leave-hood' hood.id %}" class="btn btn-outline-danger">Leave Hood</a>
                     {% endif %}
                 </div>
             </div>

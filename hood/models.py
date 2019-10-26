@@ -9,7 +9,7 @@ class NeighbourHood(models.Model):
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=60)
     admin = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name='hood')
-    logo = models.ImageField(upload_to='images/', default='hoodlogo.png')
+    logo = ImageField(manual_crop='')
     description = models.TextField()
 
     def __str__(self):
@@ -21,7 +21,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=80, blank=True)
     bio = models.TextField(max_length=254, blank=True)
     profile_picture = models.ImageField(upload_to='images/', default='default.png')
-    neighbourhood = models.ForeignKey(NeighbourHood, null=True, on_delete=models.CASCADE, related_name='people')
+    neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.SET_NULL, null=True, related_name='members', blank=True)
 
     def __str__(self):
         return f'{self.user.username} profile'

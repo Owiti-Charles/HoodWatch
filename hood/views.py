@@ -38,8 +38,8 @@ def hoods(request):
 
 def join_hood(request, id):
     neighbourhood = get_object_or_404(NeighbourHood, id=id)
-    request.user.neighbourhood = neighbourhood
-    request.user.save()
+    request.user.profile.neighbourhood = neighbourhood
+    request.user.profile.save()
     return redirect('hood')
 
 

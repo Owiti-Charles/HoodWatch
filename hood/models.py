@@ -18,9 +18,9 @@ class NeighbourHood(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    profile_picture = models.ImageField(upload_to='images/', default='default.png')
     name = models.CharField(max_length=80, blank=True)
     bio = models.TextField(max_length=254, blank=True)
+    profile_picture = models.ImageField(upload_to='images/', default='default.png')
     neighbourhood = models.ForeignKey(NeighbourHood, null=True, on_delete=models.CASCADE, related_name='people')
 
     def __str__(self):

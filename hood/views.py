@@ -48,6 +48,11 @@ def create_hood(request):
     return render(request, 'newhood.html', {'form': form})
 
 
+def single_hood(request, hood_id):
+    hood = NeighbourHood.objects.get(id=hood_id)
+    return render(request, 'single_hood.html')
+
+
 def join_hood(request, id):
     neighbourhood = get_object_or_404(NeighbourHood, id=id)
     request.user.profile.neighbourhood = neighbourhood

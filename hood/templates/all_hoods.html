@@ -9,7 +9,7 @@
             <div class="card mb-4">
                 <img src="{{ hood.hood_logo.url }}" class="card-img-top" alt="{{ hood.name }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ hood.name }} ({{hood.location}}) <span style="float:right">{{hood.members.count}} member{{hood.members.count|pluralize}}</span></h5>
+                    <h5 class="card-title"><a href="{% url 'single-hood' hood.id %}">{{ hood.name }}   </a> ({{hood.location}}) <span style="float:right">{{hood.members.count}} member{{hood.members.count|pluralize}}</span></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                         the card's content.</p>
                     {% if request.user.profile.neighbourhood != hood %}

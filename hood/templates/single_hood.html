@@ -18,8 +18,8 @@
                                 <span>{{hood.members.count}} member{{hood.members.count|pluralize}}</span>
                                 | {{ hood.business.count }} businesses
                             </h6>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text">{{hood.description}}</p>
+                            <p class="card-text"><span class="text-info">Police</span> &nbsp;<strong>{{hood.police}}</strong> | <span class="text-info">Telephone</span> <strong>{{hood.health}}</strong></p>
                             <p class="card-text">Administrator: <small class="text-muted">
                                 {{ hood.admin.user.username }}</small></p>
                         </div>

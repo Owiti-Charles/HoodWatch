@@ -16,10 +16,12 @@
                             </h5>
                             <h6 class="card-text">
                                 <span><strong>{{hood.members.count}}</strong> Member{{hood.members.count|pluralize}}</span>
-                                | <strong>{{ hood.business.count }}</strong> Businesses | <strong>{{ hood.hood_post.count }}</strong> Post{{ hood.hood_post.count|pluralize }}
+                                | <strong>{{ hood.business.count }}</strong> Businesses | <strong>{{
+                                hood.hood_post.count }}</strong> Post{{ hood.hood_post.count|pluralize }}
                             </h6>
                             <p class="card-text">{{hood.description}}</p>
-                            <p class="card-text"><span class="text-info">Police</span> &nbsp;<strong>{{hood.police}}</strong> |
+                            <p class="card-text"><span class="text-info">Police</span>
+                                &nbsp;<strong>{{hood.police}}</strong> |
                                 <span class="text-info">Telephone</span> <strong>{{hood.health}}</strong></p>
                             <p class="card-text">Administrator: <small class="text-muted">
                                 {{ hood.admin.user.username }}</small></p>
@@ -34,8 +36,9 @@
             <div class="col-md-12">
                 <a href="" class="btn btn-sm btn-outline-info mb-4 mr-4" data-toggle="modal" data-target="#ModalCenter">Add
                     Business</a>
-                <a class="btn btn-sm btn-outline-info mb-4" href="{% url 'post' %}">New Post</a>
-                 <h5 class="D-block mx-auto">Businesses</h5>
+                <a class="btn btn-sm btn-outline-info mb-4" href="{% url 'post' hood.id %}">New Post</a>
+                <h5 class="D-block mx-auto">Businesses</h5>
+                <hr>
                 <div class="row">
                     {% for bus in business %}
                     <div class="col-md-4">
@@ -52,6 +55,22 @@
                     </div>
                     {% endfor %}
                 </div>
+                <h5 class="D-block mx-auto">Posts</h5>
+                <div class="row">
+                    {% for post in posts %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">{{post.post}}
+                                </h5>
+                                <p class="card-text">By: <small class="text-muted">
+                                    {{ post.user.user.username|title }}</small> <small style="float:right">{{post.date|date}}</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <hr>
                 <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog"
                      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">

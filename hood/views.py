@@ -1,8 +1,9 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignupForm, BusinessForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .models import NeighbourHood, Profile, Business
+from .models import NeighbourHood, Profile, Business, Post
 from .forms import UpdateProfileForm, NeighbourHoodForm, PostForm
 from django.contrib.auth.models import User
 
@@ -29,7 +30,7 @@ def signup(request):
 
 def hoods(request):
     all_hoods = NeighbourHood.objects.all()
-
+    all_hoods = all_hoods[::-1]
     params = {
         'all_hoods': all_hoods,
     }
@@ -52,6 +53,7 @@ def create_hood(request):
 def single_hood(request, hood_id):
     hood = NeighbourHood.objects.get(id=hood_id)
     business = Business.objects.filter(neighbourhood=hood)
+    posts = Post.objects.filter(hood=hood)
     if request.method == 'POST':
         form = BusinessForm(request.POST)
         if form.is_valid():
@@ -65,15 +67,22 @@ def single_hood(request, hood_id):
     params = {
         'hood': hood,
         'business': business,
-        'form': form
+        'form': form,
+        'posts': posts
     }
     return render(request, 'single_hood.html', params)
 
 
-def create_post(request):
+def create_post(request, hood_id):
+    hood = NeighbourHood.objects.get(id=hood_id)
     if request.method == 'POST':
-        form = PostForm()
-
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.hood = hood
+            post.user = request.user.profile
+            post.save()
+            return HttpResponseRedirect(request.path_info)
     else:
         form = PostForm()
     return render(request, 'post.html', {'form': form})

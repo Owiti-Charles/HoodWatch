@@ -1,31 +1,41 @@
-<nav id="sidebar">
-    <div class="sidebar-header">
+<nav id="sidebar" class="bg-info">
+    <div class="sidebar-header bg-info">
         <h3>Hood Watch</h3>
         <strong><i class="fas fa-home"></i></strong>
     </div>
-
-    <ul class="list-unstyled components">
+    {% if user.is_authenticated %}
+    <ul class="list-unstyled components mr-2 ml-2">
         <li>
-            <a href="#">
+            <a href="{% url 'profile' user.username %}">
                 <i class="fas fa-user"></i>
                 &nbsp; Profile
             </a>
 
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-
-            </ul>
         </li>
         <li>
-            <a href="#">
+            <a href="{% url 'hood' %}">
                 <i class="fas fa-home"></i>
                 &nbsp; Hoods
             </a>
         </li>
+        {% if user.profile.neighbourhood %}
         <li>
-            <a href="#">
+            <a href="{% url 'single-hood' user.profile.neighbourhood.id %}">
                 <i class="fas fa-paper-plane"></i>
-                Contact
+                &nbsp;{{user.profile.neighbourhood.name}}
             </a>
         </li>
+        {% else %}
+        <li>
+            <a href="">
+                No Hood Yet
+            </a>
+        </li>
+        {% endif %}
     </ul>
+    <div class="logout ml-4 mr-4 ">
+        <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-danger d-block mx-auto"> Logout</a>
+    </div>
+
+    {% endif%}
 </nav>

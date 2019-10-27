@@ -15,11 +15,12 @@
                             <h5 class="card-title">{{ hood.name }} ({{hood.location}})
                             </h5>
                             <h6 class="card-text">
-                                <span>{{hood.members.count}} member{{hood.members.count|pluralize}}</span>
-                                | {{ hood.business.count }} businesses
+                                <span><strong>{{hood.members.count}}</strong> Member{{hood.members.count|pluralize}}</span>
+                                | <strong>{{ hood.business.count }}</strong> Businesses | <strong>{{ hood.hood_post.count }}</strong> Post{{ hood.hood_post.count|pluralize }}
                             </h6>
                             <p class="card-text">{{hood.description}}</p>
-                            <p class="card-text"><span class="text-info">Police</span> &nbsp;<strong>{{hood.police}}</strong> | <span class="text-info">Telephone</span> <strong>{{hood.health}}</strong></p>
+                            <p class="card-text"><span class="text-info">Police</span> &nbsp;<strong>{{hood.police}}</strong> |
+                                <span class="text-info">Telephone</span> <strong>{{hood.health}}</strong></p>
                             <p class="card-text">Administrator: <small class="text-muted">
                                 {{ hood.admin.user.username }}</small></p>
                         </div>
@@ -31,8 +32,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a href="" class="btn btn-sm btn-outline-info mb-4" data-toggle="modal" data-target="#ModalCenter">Add
+                <a href="" class="btn btn-sm btn-outline-info mb-4 mr-4" data-toggle="modal" data-target="#ModalCenter">Add
                     Business</a>
+                <a class="btn btn-sm btn-outline-info mb-4" href="{% url 'post' %}">New Post</a>
+                 <h5 class="D-block mx-auto">Businesses</h5>
                 <div class="row">
                     {% for bus in business %}
                     <div class="col-md-4">
@@ -54,7 +57,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">New Business</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

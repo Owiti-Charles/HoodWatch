@@ -16,8 +16,8 @@
                             </h5>
                             <h6 class="card-text">
                                 <span><strong>{{hood.members.count}}</strong> Member{{hood.members.count|pluralize}}</span>
-                                | <strong>{{ hood.business.count }}</strong> Businesses | <strong>{{
-                                hood.hood_post.count }}</strong> Post{{ hood.hood_post.count|pluralize }}
+                                | <strong>{{ hood.business.count }}</strong> Businesses | <strong>
+                                {{ hood.hood_post.count }}</strong> Post{{ hood.hood_post.count|pluralize }}
                             </h6>
                             <p class="card-text">{{hood.description}}</p>
                             <p class="card-text"><span class="text-info">Police</span>
@@ -37,6 +37,9 @@
                 <a href="" class="btn btn-sm btn-outline-info mb-4 mr-4" data-toggle="modal" data-target="#ModalCenter">Add
                     Business</a>
                 <a class="btn btn-sm btn-outline-info mb-4" href="{% url 'post' hood.id %}">New Post</a>
+                {% if hood.admin  == user.profile %}
+                <a href="{% url 'members' hood.id %}" class="btn btn-sm btn-outline-info mb-4 ml-4">Members</a>
+                {% endif %}
                 <h5 class="D-block mx-auto">Businesses</h5>
                 <hr>
                 <div class="row">

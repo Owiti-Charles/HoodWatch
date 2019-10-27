@@ -18,6 +18,12 @@
                 &nbsp; Hoods
             </a>
         </li>
+        <li>
+            <a href="">
+                <i class="fa fa-group"></i>
+                &nbsp; Members
+            </a>
+        </li>
         {% if user.profile.neighbourhood %}
         <li>
             <a href="{% url 'single-hood' user.profile.neighbourhood.id %}">

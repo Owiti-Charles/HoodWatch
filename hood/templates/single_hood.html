@@ -35,6 +35,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-10">
                 <a href="" class="btn btn-sm btn-outline-info mb-4" data-toggle="modal" data-target="#ModalCenter">Add Business</a>
+                <div class="row">
                 {% for bus in business %}
                 <div class="col-md-4">
                     <div class="card mb-4">
@@ -49,6 +50,7 @@
                     </div>
                 </div>
                 {% endfor %}
+                </div>
                 <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog"
                      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -61,8 +63,9 @@
                             </div>
                             <div class="modal-body">
                                 <form action="" method="post">
+                                    {% csrf_token%}
                                     {{form|crispy}}
-                                    <button type="button" class="btn btn-sm btn-success">Save Business</button>
+                                    <button type="submit" class="btn btn-sm btn-success">Save Business</button>
                                     <button type="button" class="btn btn-sm btn-outline-danger " data-dismiss="modal">Close</button>
                                 </form>
                             </div>

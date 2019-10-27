@@ -1,10 +1,10 @@
 # HomeWatch
-# project-awwards
 
 >[Owiti-Charles](https://github.com/Owiti-Charles)  
   
 # Description  
-This project allows users to post their projects for other users to rate according to design, usability and content 
+Tis is a neighborhood app where a user must signup first, be able to join a hood owned by the hood admin, and once you 
+join a hood, one can see businesses and posts in only that wood they belong to.  
 ##  Live Link  
  Click [View Site](https://hood-watchapp.herokuapp.com)  to visit the site
   

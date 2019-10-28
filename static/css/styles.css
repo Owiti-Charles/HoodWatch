@@ -22,7 +22,7 @@ a:focus {
     margin-top:-1%;
     margin-left:-1%;
     padding: 15px 10px;
-    background: #fff;
+    background-color: #35495e;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
@@ -48,7 +48,7 @@ span {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #7386D5;
+    background: #1a3e59;
     color: #fff;
     position: -webkit-sticky;
     position: sticky;
@@ -57,8 +57,8 @@ span {
 }
 
 #sidebar.active {
-    min-width: 80px;
-    max-width: 80px;
+    min-width: 90px;
+    max-width: 90px;
     text-align: center;
 }
 
@@ -103,7 +103,7 @@ span {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+
 }
 
 #sidebar .sidebar-header strong {

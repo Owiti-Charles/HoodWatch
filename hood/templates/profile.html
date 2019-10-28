@@ -12,7 +12,6 @@
         </div>
         <div class="col-md-3"></div>
     </div>
-    <a href="{% url 'edit-profile' user.username %}">Edit Profile</a>
     {% if request.user.profile.neighbourhood %}
     <a href="{% url 'single-hood' user.profile.neighbourhood.id %}">{{ user.profile.neighbourhood.name }}</a>
     {% endif %}

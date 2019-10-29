@@ -5,15 +5,16 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 mt-4">
-            <img class="rounded-circle account-img d-block mx-auto" src="{{ user.profile.profile_picture.url }}" height="125px" width="125px">
+            <img class="rounded-circle account-img d-block mx-auto" src="{{ user.profile.profile_picture.url }}"height="125px" width="125px">
             <h5 class="text-center mt-3">{{user.username}}</h5>
             <p class="text-center"> {{user.email}}</p>
+            {% if request.user.profile.neighbourhood %}
+            <a class="btn btn-sm btn-info" href="{% url 'single-hood' user.profile.neighbourhood.id %}">{{ user.profile.neighbourhood.name }}</a>
+            {% endif %}
         </div>
         <div class="col-md-3"></div>
     </div>
-    {% if request.user.profile.neighbourhood %}
-    <a href="{% url 'single-hood' user.profile.neighbourhood.id %}">{{ user.profile.neighbourhood.name }}</a>
-    {% endif %}
+
 
 </div>
 {% endblock %}

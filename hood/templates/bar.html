@@ -7,7 +7,7 @@
     <ul class="list-unstyled components mr-2 ml-2">
         <li class="mb-4">
             <a href="{% url 'profile' user.username %}">
-                <i class="fas fa-user"></i>&nbsp;
+                <img class="rounded-circle nav-img"src="{{ user.profile.profile_picture.url }}" alt="">
                 &nbsp; Profile
             </a>
 

@@ -25,7 +25,7 @@
 <body>
     <div class="wrapper">
         {% include 'bar.html' %}
-        <div id="content">
+        <div id="content" style="background-image: url({% static 'images/bg.jpg' %}); background-repeat:no-repeat;background-size:cover">
         {% include 'navbar.html' %}
 
           {% block content %}

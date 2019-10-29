@@ -11,8 +11,8 @@ class NeighbourHood(models.Model):
     admin = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name='hood')
     hood_logo = models.ImageField(upload_to='images/')
     description = models.TextField()
-    health = models.IntegerField(null=True, blank=True)
-    police = models.IntegerField(null=True, blank=True)
+    health_tell = models.IntegerField(null=True, blank=True)
+    police_number = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.name} hood'

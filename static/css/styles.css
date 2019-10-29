@@ -22,6 +22,11 @@ body {
     padding-top: 10px;
     margin-top:-4%;
 }
+.hoode{
+    padding-bottom: 20px;
+    padding-top: 10px;
+    margin-top: -1%;
+}
 .prof{
     padding:40px;
     border-radius:6px;
@@ -58,7 +63,17 @@ span {
     display: flex;
     align-items: stretch;
 }
-
+.tt{
+    color:#1a3e59;
+}
+.hpost{
+   background-color:#1a3e59;
+   color: white;
+}
+.poster{
+    padding: 20px;
+    border-radius: 6px;
+}
 #sidebar {
     min-width: 250px;
     max-width: 250px;

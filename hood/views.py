@@ -54,6 +54,7 @@ def single_hood(request, hood_id):
     hood = NeighbourHood.objects.get(id=hood_id)
     business = Business.objects.filter(neighbourhood=hood)
     posts = Post.objects.filter(hood=hood)
+    posts = posts[::-1]
     if request.method == 'POST':
         form = BusinessForm(request.POST)
         if form.is_valid():
@@ -88,7 +89,7 @@ def create_post(request, hood_id):
             post.hood = hood
             post.user = request.user.profile
             post.save()
-            return redirect('hood')
+            return redirect('single-hood', hood.id)
     else:
         form = PostForm()
     return render(request, 'post.html', {'form': form})

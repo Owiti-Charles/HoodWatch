@@ -66,8 +66,8 @@ class Business(models.Model):
         self.delete()
 
     @classmethod
-    def find_business(cls, business_id):
-        return cls.objects.filter(id=business_id)
+    def search_business(cls, name):
+        return cls.objects.filter(name__icontains=name).all()
 
 
 class Post(models.Model):

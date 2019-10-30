@@ -123,3 +123,19 @@ def edit_profile(request, username):
     else:
         form = UpdateProfileForm(instance=request.user.profile)
     return render(request, 'editprofile.html', {'form': form})
+
+
+def search_business(request):
+    if request.method == 'GET':
+        name = request.GET.get("title")
+        results = Business.objects.filter(name__icontains=name).all()
+        print(results)
+        message = f'name'
+        params = {
+            'results': results,
+            'message': message
+        }
+        return render(request, 'results.html', params)
+    else:
+        message = "You haven't searched for any image category"
+    return render(request, "results.html")

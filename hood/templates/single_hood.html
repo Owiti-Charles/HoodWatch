@@ -37,9 +37,15 @@
                 <a href="" class="btn btn-sm btn-outline-info mb-4 mr-4" data-toggle="modal" data-target="#ModalCenter">Add
                     Business</a>
                 <a class="btn btn-sm btn-outline-info mb-4" href="{% url 'post' hood.id %}">New Post</a>
-                {% if hood.admin  == user.profile %}
+                {% if hood.admin == user.profile %}
                 <a href="{% url 'members' hood.id %}" class="btn btn-sm btn-outline-info mb-4 ml-4">Members</a>
                 {% endif %}
+                <form class="form-inline" method="get" action="{% url 'search' %}">
+                    {% csrf_token %}
+                    <div class="md-form my-0">
+                        <input class="form-control mr-sm-2 " type="text" placeholder="Search Business" name="title" aria-label="Search">
+                    </div>
+                </form>
                 <h5 class="D-block mx-auto tt">Businesses</h5>
                 <hr>
                 <div class="row">
@@ -68,7 +74,8 @@
                                 <p class="card-text">" {{post.post}} "
                                 </p>
                                 <p class="card-text">By: <small class="text-white">
-                                    {{ post.user.user.username|title }}</small> <small style="float:right">{{post.date|date}}</small></p>
+                                    {{ post.user.user.username|title }}</small> <small style="float:right">{{post.date|date}}</small>
+                                </p>
                             </div>
                         </div>
                     </div>

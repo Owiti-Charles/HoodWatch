@@ -11,11 +11,7 @@ join a hood, one can see businesses and posts in only that wood they belong to.
 ## Screenshots 
 ###### Home page
  
-<img src="">
- 
- ###### Rating of a post
- <img src=""> 
-
+<img src="https://ucarecdn.com/457f313d-4181-4d86-aca7-a91151d80707/hood.png">
 
  
 ## User Story  
